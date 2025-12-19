@@ -12,8 +12,8 @@ export class Projects {
   chips = [
     {id: 'tdd', labels: ['Spring boot', 'AWS', 'PostgreSQL', 'Jenkins', 'GIT']},
     {id: 'ap', labels: ['Spring boot', 'AWS', 'PostgreSQL', 'Jenkins', 'GIT']},
-    {id: 'report', labels: ['Spring boot', 'AWS', 'PostgreSQL', 'Jenkins', 'GIT']},
-    {id: 'dyna', labels: ['Spring boot', 'AWS', 'GIT', 'Dynatrace']}
+    {id: 'report', labels: ['Spring boot', 'AWS', 'NoSQL', 'Jenkins', 'GIT']},
+    {id: 'dyna', labels: ['Spring boot', 'AWS', 'GIT', 'Dynatrace', 'Logback']}
   ];
 
   getChips(id: string) {
