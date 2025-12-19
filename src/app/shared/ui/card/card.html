@@ -1,0 +1,23 @@
+<div class="w-full rounded-2xl bg-surface border border-white/10 backdrop-blur shadow-md">
+
+  <!-- Title -->
+  @if (title()) {
+    <header class="px-5 py-4">
+      <h4 class=""> {{ title() }} </h4>
+      @if (subtitle()) {
+        <small>{{ subtitle() }}</small>
+      }
+    </header>
+  }
+
+  <!-- Body -->
+  <div class="px-5 py-5">
+    <ng-content></ng-content>
+  </div>
+
+  <!-- Footer -->
+  <footer class="px-5 py-4 border-t border-white/10">
+    <ng-content select="[card-footer]"></ng-content>
+  </footer>
+
+</div>

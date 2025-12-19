@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Container } from '../../shared/ui/container/container';
-import { ContactActions } from '../../shared/components/contact-actions/contact-actions';
-import {Card} from '../../shared/ui/card/card';
+import { ContactActions } from '../contact-actions/contact-actions';
+import {Projects} from '../projects/projects';
+import {Stack} from '../stack/stack';
 
 @Component({
   selector: 'app-home',
-  imports: [Container, ContactActions, Card],
+  imports: [Container, ContactActions, Projects, Stack],
   standalone: true,
   templateUrl: './home.html',
 })

@@ -1,0 +1,55 @@
+<h2>Proyectos destacados</h2>
+<div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
+  <app-card title="Tarjeta Digital" subtitle="Coopeuch">
+    <p>
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+      At vero eos et accusam et justo duo dolores et ea rebum.
+    </p>
+  <div card-footer class="flex flex-wrap gap-2">
+    @for (chip of getChips('tdd'); track chip) {
+      <div class="rounded-md bg-dark-top py-0.5 px-2.5 border border-transparent text-sm text-white transition-all shadow-sm">
+        {{ chip }}
+      </div>
+    }
+  </div>
+  </app-card>
+  <app-card title="Apple Pay" subtitle="Coopeuch">
+    <p>
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+      At vero eos et accusam et justo duo dolores et ea rebum.
+    </p>
+    <div card-footer class="flex flex-wrap gap-2">
+      @for (chip of getChips('ap'); track chip) {
+        <div class="rounded-md bg-dark-top py-0.5 px-2.5 border border-transparent text-sm text-white transition-all shadow-sm">
+          {{ chip }}
+        </div>
+      }
+    </div>
+  </app-card>
+  <app-card title="Reportería" subtitle="Coopeuch">
+    <p>
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+      At vero eos et accusam et justo duo dolores et ea rebum.
+    </p>
+    <div card-footer class="flex flex-wrap gap-2">
+      @for (chip of getChips('report'); track chip) {
+        <div class="rounded-md bg-dark-top py-0.5 px-2.5 border border-transparent text-sm text-white transition-all shadow-sm">
+          {{ chip }}
+        </div>
+      }
+    </div>
+  </app-card>
+  <app-card title="Monitoreo Dynatrace" subtitle="Coopeuch">
+    <p>
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+      At vero eos et accusam et justo duo dolores et ea rebum.
+    </p>
+    <div card-footer class="flex flex-wrap gap-2">
+      @for (chip of getChips('dyna'); track chip) {
+        <div class="rounded-md bg-dark-top py-0.5 px-2.5 border border-transparent text-sm text-white transition-all shadow-sm">
+          {{ chip }}
+        </div>
+      }
+    </div>
+  </app-card>
+</div>
