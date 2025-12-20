@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'tailwindcss';
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
-@import "tailwindcss";
 
 @theme {
   --color-dark: oklch(0.13 0.03 286);
@@ -10,6 +9,8 @@
 
   --color-white-top: oklch(0.96 0 0);
   --color-white-middle: oklch(0.77 0 0);
+
+  --color-dark-top-hover: oklch(0.553 0.166 284);
 
   /* Tokens semánticos recomendados */
   --color-background: var(--color-dark);
