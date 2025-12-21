@@ -4,11 +4,11 @@ import {Projects} from '../projects/projects';
 import {Stack} from '../stack/stack';
 import {Experience} from '../experience/experience';
 import {Footer} from '../footer/footer';
-import {Introduction} from '../introduction/introduction';
+import {About} from '../about/about';
 
 @Component({
   selector: 'app-home',
-  imports: [Container, Projects, Stack, Experience, Footer, Introduction],
+  imports: [Container, Projects, Stack, Experience, Footer, About],
   standalone: true,
   templateUrl: './home.html',
 })
