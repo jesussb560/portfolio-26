@@ -1,23 +1,38 @@
 import { Component, Input } from '@angular/core';
+import {NgTemplateOutlet} from '@angular/common';
 
 @Component({
   selector: 'app-button',
   standalone: true,
-  imports: [],
+  imports: [
+    NgTemplateOutlet
+  ],
   template: `
-    <button
-        type="button"
+    <ng-template #content>
+      <ng-content></ng-content>
+    </ng-template>
+
+    @if (href) {
+      <a
+        [href]="href"
+        target="_blank"
+        rel="noopener noreferrer"
         [class]="classes"
       >
-        <ng-content></ng-content>
-    </button>
-    `,
+        <ng-container [ngTemplateOutlet]="content"></ng-container>
+      </a>
+    } @else {
+      <button type="button" [class]="classes">
+        <ng-container [ngTemplateOutlet]="content"></ng-container>
+      </button>
+    }`,
   styleUrl: './button.scss',
 })
 export class Button {
 
   @Input() variant: 'primary' | 'ghost' | 'icon' = 'primary';
   @Input() size: 'sm' | 'md' | 'lg' = 'md';
+  @Input() href?: string;
 
   get classes(): string {
     const base =
@@ -25,7 +40,8 @@ export class Button {
       'disabled:opacity-50 disabled:pointer-events-none';
 
     const variants = {
-      primary: 'rounded-lg bg-dark-top transition-all duration-200 hover:-translate-y-0.5 hover:bg-dark-top-hover',
+      primary: 'no-underline rounded-lg bg-dark-top transition-all duration-200 ' +
+        'hover:-translate-y-0.5 hover:bg-dark-top-hover',
       ghost: 'rounded-md text-white/80 ',
       icon: 'rounded-full border border-white/20 hover:bg-white/10'
     };
