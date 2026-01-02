@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, computed } from '@angular/core';
 import {NgTemplateOutlet} from '@angular/common';
 
 @Component({
@@ -12,17 +12,17 @@ import {NgTemplateOutlet} from '@angular/common';
       <ng-content></ng-content>
     </ng-template>
 
-    @if (href) {
+    @if (href()) {
       <a
-        [href]="href"
+        [href]="href()"
         target="_blank"
         rel="noopener noreferrer"
-        [class]="classes"
+        [class]="classes()"
       >
         <ng-container [ngTemplateOutlet]="content"></ng-container>
       </a>
     } @else {
-      <button type="button" [class]="classes">
+      <button type="button" [class]="classes()">
         <ng-container [ngTemplateOutlet]="content"></ng-container>
       </button>
     }`,
@@ -30,31 +30,35 @@ import {NgTemplateOutlet} from '@angular/common';
 })
 export class Button {
 
-  @Input() variant: 'primary' | 'ghost' | 'icon' = 'primary';
-  @Input() size: 'sm' | 'md' | 'lg' = 'md';
-  @Input() href?: string;
+  readonly variant = input<'primary' | 'ghost' | 'icon'>('primary');
+  readonly size = input<'sm' | 'md' | 'lg'>('md');
+  readonly href = input<string | undefined>();
 
-  get classes(): string {
+  readonly classes = computed(() => {
     const base =
       'inline-flex items-center justify-center gap-2 transition ' +
       'disabled:opacity-50 disabled:pointer-events-none';
 
     const variants = {
-      primary: 'no-underline rounded-lg bg-dark-top transition-all duration-200 ' +
+      primary:
+        'no-underline rounded-lg bg-dark-top transition-all duration-200 ' +
         'hover:-translate-y-0.5 hover:bg-dark-top-hover',
-      ghost: 'rounded-md text-white/80 ',
-      icon: 'rounded-full border border-white/20 hover:bg-white/10'
+      ghost: 'rounded-md text-white/80',
+      icon: 'rounded-full border border-white/20 hover:bg-white/10',
     };
 
     const sizes = {
       sm: 'px-3 py-1.5 text-sm',
       md: 'px-4 py-2 text-sm',
-      lg: 'px-5 py-2.5 text-base'
+      lg: 'px-5 py-2.5 text-base',
     };
 
-    const iconSize = this.variant === 'icon' ? 'size-11 p-0' : sizes[this.size];
+    const iconSize =
+      this.variant() === 'icon'
+        ? 'size-11 p-0'
+        : sizes[this.size()];
 
-    return `${base} ${variants[this.variant]} ${iconSize}`;
-  }
+    return `${base} ${variants[this.variant()]} ${iconSize}`;
+  });
 
 }
